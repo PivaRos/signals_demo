@@ -4,17 +4,22 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 15 Pro Max'",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "android-clean": "cd android && ./gradlew clean && cd ..",
+    "ios-clean": "cd ios && xcodebuild clean && rm -rf ~/Library/Caches/CocoaPods && rm -rf Pods && rm -rf ~/Library/Developer/Xcode/DerivedData/* && pod cache clean --all && pod deintegrate && pod setup && pod install && cd ..",
+    "project-clean": "rm -rf node_modules && yarn cache clean --force && yarn install"
   },
   "dependencies": {
+    "@preact/signals-react": "^2.0.0",
+    "@preact/signals-react-transform": "^0.3.0",
     "react": "18.2.0",
     "react-native": "0.73.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
     "@react-native/babel-preset": "0.73.21",
